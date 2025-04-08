@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #f0f0f0;
+  color: #0f0ff0;
+}
+
+header {
+  background-color: blueviolet;
+  color: white;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.menu-items {
+  display: flex;
+  list-style: none;
+}
+
+.menu-items li {
+  margin: 0 15px;
+}
+
+.menu-items li a {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.menu-items li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle .bar {
+  height: 3px;
+  width: 25px;
+  background-color: white;
+  margin: 3px 0;
+}
+
+.hero {
+  text-align: center;
+  padding: 20px;
+  background-color: #e0e0e0;
+}
+
+.content {
+  padding: 20px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.grid-item {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: blueviolet;
+  color: white;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  header nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-items {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: blueviolet;
+    gap: 10px;
+    padding: 5px;
+  }
+
+  .menu-items.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr; /* Stack items on small screens */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  header nav ul {
+    flex-direction: row;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
+  }
+}
+
+@media (min-width: 1025px) {
+  .grid-container {
+    grid-template-columns: repeat(4, 1fr); /* Four columns for desktops */
+  }
+}
